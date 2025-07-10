@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Predicted Fantasy Team</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans py-8 px-4">
+
+  <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Predicted Best 11 Fantasy Team</h1>
+
+  <div class="summary-container flex flex-wrap justify-center gap-6 mb-10">
+    <div class="summary-box border-2 border-gray-500 rounded-lg bg-white shadow-md px-6 py-4 min-w-[200px] text-center">
+      <h3 class="text-lg font-semibold mb-2 text-gray-700">Role Summary</h3>
+      {% for role, count in role_summary.items() %}
+        <h4 class="text-gray-800">{{ role }}: {{ count }}</h4>
+      {% endfor %}
+    </div>
+
+    <div class="summary-box border-2 border-gray-500 rounded-lg bg-white shadow-md px-6 py-4 min-w-[200px] text-center">
+      <h3 class="text-lg font-semibold mb-2 text-gray-700">Team Summary</h3>
+      {% for team, count in team_summary.items() %}
+        <h4 class="text-gray-800">{{ team }}: {{ count }}</h4>
+      {% endfor %}
+    </div>
+
+    <div class="summary-box border-2 border-gray-500 rounded-lg bg-white shadow-md px-6 py-4 min-w-[200px] text-center">
+      <h3 class="text-lg font-semibold mb-2 text-gray-700">Credits Summary</h3>
+      <h4 class="text-green-700 font-bold">Left: {{ credits_left }}</h4>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full max-w-6xl mx-auto bg-white border border-gray-300 rounded-lg shadow-md text-center">
+      <thead class="bg-green-600 text-white">
+        <tr>
+          <th class="px-4 py-3">Player Name</th>
+          <th class="px-4 py-3">Credits</th>
+          <th class="px-4 py-3">Player Type</th>
+          <th class="px-4 py-3">Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for player in team %}
+          <tr class="{% if loop.index <= 2 %}bg-yellow-200 font-semibold{% elif loop.index % 2 == 0 %}bg-gray-100{% endif %}">
+            <td class="border px-4 py-2">{{ player['Player Name'] }}</td>
+            <td class="border px-4 py-2">{{ player['Credits'] }}</td>
+            <td class="border px-4 py-2">{{ player['Player Type'] }}</td>
+            <td class="border px-4 py-2">{{ player['Team'] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-10 text-center">
+    <a href="/download" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded transition">
+      Download Predicted Team CSV
+    </a>
+  </div>
+
+</body>
+</html>

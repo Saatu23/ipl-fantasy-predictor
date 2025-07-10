@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predicted Fantasy Team</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Best Fantasy 11</h1>
+
+  {% if players %}
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Credits</th>
+          <th>Player Type</th>
+          <th>Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in players %}
+          <tr>
+            <td>{{ p['Player Name'] }}</td>
+            <td>{{ p.Credits }}</td>
+            <td>{{ p['Player Type'] }}</td>
+            <td>{{ p.Team }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No players to show.</p>
+  {% endif %}
+
+  <br><br>
+  <a href="/">← Back to Home</a>
+</body>
+</html>

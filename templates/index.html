@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IPL Fantasy Team Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col items-center px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-blue-700">🏏 IPL Fantasy Team Predictor</h1>
+
+    <form id="match-setup-form" class="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl space-y-4">
+      <div>
+        <label for="team_a" class="block font-semibold mb-1">Select Team A:</label>
+        <select id="team_a" name="team_a" required class="w-full border rounded px-3 py-2">
+          <option value="">--Select Team A--</option>
+          <option value="MI">MI</option>
+          <option value="CSK">CSK</option>
+          <option selected value="RCB">RCB</option>
+          <option value="GT">GT</option>
+          <option value="SRH">SRH</option>
+          <option value="RR">RR</option>
+          <option value="KKR">KKR</option>
+          <option value="DC">DC</option>
+          <option value="PBKS">PBKS</option>
+          <option value="LSG">LSG</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="team_b" class="block font-semibold mb-1">Select Team B:</label>
+        <select id="team_b" name="team_b" required class="w-full border rounded px-3 py-2">
+          <option value="">--Select Team B--</option>
+          <option selected value="MI">MI</option>
+          <option value="CSK">CSK</option>
+          <option value="RCB">RCB</option>
+          <option value="GT">GT</option>
+          <option value="SRH">SRH</option>
+          <option value="RR">RR</option>
+          <option value="KKR">KKR</option>
+          <option value="DC">DC</option>
+          <option value="PBKS">PBKS</option>
+          <option value="LSG">LSG</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="venue" class="block font-semibold mb-1">Select Venue:</label>
+        <select id="venue" name="venue" required class="w-full border rounded px-3 py-2">
+          <option>--Select Venue--</option>
+          <option>Chennai</option>
+          <option>Delhi</option>
+          <option selected>Mumbai</option>
+          <option>Kolkata</option>
+          <option>Bengaluru</option>
+          <option>Hyderabad</option>
+          <option>Ahmedabad</option>
+          <option>Jaipur</option>
+          <option>Mohali</option>
+          <option>Lucknow</option>
+          <option>Dharamsala</option>
+          <option>Guwahati</option>
+          <option>Indore</option>
+          <option>Visakhapatnam</option>
+          <option>New Chandigarh</option>
+        </select>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+          Proceed to Player Selection
+        </button>
+      </div>
+    </form>
+
+    <div id="player-selection" style="display: none" class="w-full max-w-4xl mt-10">
+      <h2 class="text-2xl font-bold mb-4 text-green-700">👥 Select Playing 11 for Both Teams</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 text-left bg-white">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="px-4 py-2 border-r border-gray-300">Team A</th>
+              <th class="px-4 py-2">Team B</th>
+            </tr>
+          </thead>
+          <tbody id="player-table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
+        <button id="generate-excel-btn" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">
+          Generate Excel
+        </button>
+
+        <form method="POST" action="/predict" class="flex items-center">
+          <input type="hidden" id="hidden-venue" name="venue" />
+          <button
+            type="submit"
+            id="predict-btn"
+            class="predict-btn bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
+            disabled
+          >
+            Predict Best 11
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+  </body>
+</html>
