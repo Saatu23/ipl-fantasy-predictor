@@ -9,7 +9,7 @@ A web application that helps users generate the **best 11 fantasy cricket team**
 - 📊 **Venue-based Intelligence**: Incorporates venue performance into the model.
 - 🧮 **Role & Team Diversity**: Ensures all key roles (WK, BAT, ALL, BOWL) are present.
 - 📥 **Excel Integration**: Generates an Excel input file based on player selections.
-- 💡 **Clean UI + Dark Mode**: Fully responsive, modern interface with TailwindCSS and dark mode toggle.
+- 💡 **Clean UI**: Fully responsive, modern interface with TailwindCSS.
 - 📦 **CSV Download**: Download the predicted team as a CSV file.
 
 ---
