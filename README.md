@@ -21,6 +21,16 @@ A web application that helps users generate the **best 11 fantasy cricket team**
 | ![Home Page](screenshots/home.png) | ![Predicted](screenshots/predicted.png) |
 
 ---
+
+## 📂 Data Source
+
+The model is trained on a **custom IPL fantasy dataset that was created by the Author** from raw match commentary data. It includes player stats, fantasy points, and venue-specific performance metrics.
+
+👉 Dataset Repository: [Saatu23/t20-fantasy-dataset](https://github.com/Saatu23/t20-fantasy-dataset)
+
+The dataset was created by the project author using custom parsing and transformation from raw match commentary data.
+
+---
 ## 🚀 Tech Stack
 
 - **Frontend**: HTML, TailwindCSS, JavaScript
