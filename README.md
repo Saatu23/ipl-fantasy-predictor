@@ -69,3 +69,10 @@ python app.py
 ## 📁 Project Structure
 
 ![Project Structure](screenshots/folder_structure.png)
+
+---
+### 🙋‍♂️ Author
+
+**Satyam Kumar Mishra**  
+📧 satyammishra20102004@gmail.com  
+🔗 [GitHub](https://github.com/Saatu23)
